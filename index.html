@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Example - example-ng-app-production</title>
+    <script src="/scripts/angular.js"></script>
+    <script src="/scripts/script.js"></script>
+</head>
+
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <!-- {{message}}<br>
+        {{greetings}}<br>
+        {{employee.firstName}}
+        {{employee.lastName}}<br>
+        Age : {{employee.age}}<br>
+        This DOM is rendered twice first with the simple text and then with the angular expression
+        So if we see console, first error is thrown : 
+        "Failed to load resource: the server responded with a status of 404 (Not Found)Understand this errorAI"
+        Then when the angular is parsed then again new dom is made
+       <img src="{{employee.profileImage}}" alt="">
+        <img ng-src="{{employee.profileImage}}" />
+        <input type="text" ng-model="message" />
+        <input type="text" ng-model="greetings" /> -->
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" ng-model="employee.firstName"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" ng-model="employee.lastName"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="text" ng-model="employee.age"></td>
+            </tr>
+        </table>
+        <br/>
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td>{{employee.firstName}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{employee.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>{{employee.age}}</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+
+</html>
