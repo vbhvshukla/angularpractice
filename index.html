@@ -23,36 +23,39 @@
         <img ng-src="{{employee.profileImage}}" />
         <input type="text" ng-model="message" />
         <input type="text" ng-model="greetings" /> -->
-        <table>
+        <!-- <table>
+           <thead>
             <tr>
-                <td>First Name</td>
-                <td><input type="text" ng-model="employee.firstName"></td>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
             </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><input type="text" ng-model="employee.lastName"></td>
+           </thead>
+           <tbody>
+            <tr ng-repeat="employee in employees">
+                <td>{{employee.firstName}} </td>
+                <td>{{employee.lastName}} </td>
+                <td>{{employee.age}} </td>
             </tr>
-            <tr>
-                <td>Age</td>
-                <td><input type="text" ng-model="employee.age"></td>
-            </tr>
-        </table>
-        <br/>
-        <table>
-            <tr>
-                <td>First Name</td>
-                <td>{{employee.firstName}}</td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td>{{employee.lastName}}</td>
-            </tr>
-            <tr>
-                <td>Age</td>
-                <td>{{employee.age}}</td>
-            </tr>
-        </table>
-
+           </tbody>
+        </table> -->
+        <!-- <ul>
+            <li ng-repeat = "country in countries">
+                {{country.name}}
+                <ul ng-repeat = "city in country.cities">
+                    <li>{{city}}'s Index is {{$index}} & Parent's Index is {{$parent.$index}}</li>
+                </ul>
+            </li>
+        </ul> -->
+        <!-- Another way to get parent index of above example -->
+        <ul>
+            <li ng-repeat = "country in countries" ng-init="parentIndex = $index">
+                {{country.name}}
+                <ul ng-repeat = "city in country.cities">
+                    <li>{{city}}'s Index is {{$index}} & Parent's Index is {{parentIndex}}</li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </body>
 
