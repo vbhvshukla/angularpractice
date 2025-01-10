@@ -61,7 +61,37 @@ var myApp = angular
         }
 
     ]
+    var languages = [
+        {
+            name:"C#",
+            likes:"0",
+            dislikes:"0"
+        },
+        {
+            name:"ASP.net",
+            likes:"0",
+            dislikes:"0"
+        },
+        {
+            name:"CPP",
+            likes:"0",
+            dislikes:"0"
+        },
+        {
+            name:"Python",
+            likes:"0",
+            dislikes:"0"
+        }
+    ]
+    
     $scope.message = "Hello!";
     $scope.employees = employees;
     $scope.countries = countries;
-  });
+    $scope.languages = languages;
+    $scope.clickLike = function(language){
+        language.likes++;
+    }
+    $scope.clickDislike = function(language){
+        language.dislikes--;
+    }
+});

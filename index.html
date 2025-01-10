@@ -48,14 +48,35 @@
             </li>
         </ul> -->
         <!-- Another way to get parent index of above example -->
-        <ul>
+        <!-- <ul>
             <li ng-repeat = "country in countries" ng-init="parentIndex = $index">
                 {{country.name}}
                 <ul ng-repeat = "city in country.cities">
                     <li>{{city}}'s Index is {{$index}} & Parent's Index is {{parentIndex}}</li>
                 </ul>
             </li>
-        </ul>
+        </ul> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Programming Langauges</td>
+                    <th>Likes</td>
+                    <th>Dislikes</td>
+                    <th>Vote</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="language in languages">
+                    <td>{{language.name}}</td>
+                    <td>{{language.likes}}</td>
+                    <td>{{language.dislikes}}</td>
+                    <td>
+                        <input type="button" ng-click="clickLike(language)" value="Like">
+                        <input type="button" ng-click="clickDislike(language)" value="Dislike">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 
