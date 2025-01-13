@@ -3,27 +3,104 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Example - example-ng-app-production</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor Scroll Example</title>
     <script src="/scripts/angular.js"></script>
     <script src="/scripts/script.js"></script>
-    <script src="/scripts/filters.js"></script>
-    <script src="/scripts/stringService.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
 
+        section {
+            margin: 50px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body ng-app="myModule">
     <div ng-controller="myController">
-       <table>
-            <tr>
-                <td>Input string</td>
-                <td><input type="text" ng-model="input"/></td>
-            </tr>
-            <tr>
-                <td>Output string</td>
-                <td><input type="text" ng-model="output"/></td>
-            </tr>
-            <td><input type="button" value="Process String" ng-click="transformString(input)" value='output'/></td>
-       </table>
+        <nav>
+            <button id="btn1" ng-click="scrollTo('section1')">Section 1</button>
+            <button id="btn2" ng-click="scrollTo('section2')">Section 2</button>
+            <button id="btn3" ng-click="scrollTo('section3')">Section 3</button>
+            <button id="btn4" ng-click="scrollTo('section4')">Section 4</button>
+        </nav>
+
+        <section id="section1">
+            <h1>Section 1</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus
+                et netus et malesuada fames ac turpis egestas. Sed non erat vel sapien venenatis tempus. Duis ac ipsum
+                sit amet turpis tincidunt tristique.
+            </p>
+            <p>
+                Integer vitae lacus a odio vehicula placerat. Cras consequat nisi eget dolor accumsan, at tincidunt
+                lectus tincidunt. Curabitur facilisis metus eget libero accumsan pharetra.
+            </p>
+        </section>
+
+        <section id="section2">
+            <h1>Section 2</h1>
+            <p>
+                Praesent euismod neque in turpis feugiat, at vehicula libero faucibus. Nullam ut nunc in quam dictum
+                rhoncus. Nulla facilisi. Ut placerat elit non urna mollis, non interdum justo elementum.
+            </p>
+            <p>
+                Aenean posuere libero sit amet turpis dignissim, ac ullamcorper velit eleifend. Nam feugiat libero nec
+                tellus tempor, a tincidunt nulla varius.
+            </p>
+        </section>
+
+        <section id="section3">
+            <h1>Section 3</h1>
+            <p>
+                Cras sit amet sapien nec lorem aliquam vestibulum in at felis. Curabitur bibendum turpis id tellus
+                tempus, a dictum lacus condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada
+                fames ac turpis egestas.
+            </p>
+            <p>
+                Proin non nulla id justo aliquet facilisis id quis purus. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia curae.
+            </p>
+        </section>
+
+        <section id="section4">
+            <h1>Section 4</h1>
+            <p>
+                Suspendisse potenti. Nam mollis justo non lacus sodales, ut feugiat magna venenatis. Morbi a malesuada
+                magna. Curabitur pharetra lectus nec purus porttitor, vel vehicula nisl lacinia.
+            </p>
+            <p>
+                Fusce nec semper magna, nec laoreet enim. Quisque lacinia eros sit amet magna volutpat vehicula.
+            </p>
+        </section>
     </div>
 </body>
 
