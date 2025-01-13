@@ -12,14 +12,9 @@
 
 <body ng-app="myModule">
     <div ng-controller="myController">
-        Select View : 
-        <select ng-model="employeeView">
-            <option value="EmployeeTable.html">Table View</option>
-            <option value="EmployeeList.html">List View</option>
-        </select>
-        <div ng-include="employeeView">
-
-        </div>
+       <div ng-repeat="(key,value) in githubData">
+           {{key}} : {{value}} 
+       </div> 
     </div>
 </body>
 

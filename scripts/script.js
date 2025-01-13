@@ -13,7 +13,7 @@
 //Method chaining
 var myApp = angular
   .module("myModule", [])
-  .controller("myController", function ($scope) {
+  .controller("myController", function ($scope,$http) {
     // var employees = [
     //   {
     //     firstName: "Vaibhav",
@@ -142,4 +142,5 @@ var myApp = angular
         }
       }
     };
+    $http.get('https://api.github.com/users/vbhvshukla').then((data)=>$scope.githubData = data.data);
   });
