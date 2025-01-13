@@ -127,4 +127,6 @@ var myApp = angular
         }
     ];
     $scope.employees = employees;
+    $scope.sorttby = "name";
+    $scope.rowLimit = 1;
 });

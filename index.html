@@ -77,8 +77,19 @@
                 </tr>
             </tbody>
         </table> -->
-        <input type="number" min=0 max=5 ng-model="rowLimit" ng-init="rowLimit=1" >
         <table>
+            <input type="number" step="1" min="1" max="5" ng-model="rowLimit">
+            <label for="sortt">Sort by</label>
+            <select ng-model="sorttby">
+                <option value="name">Name</option>
+                <option value="-name">Descending Name</option>
+                <option value="age">DOB</option>
+                <option value="-age">Descending DOB</option>
+                <option value="gender">Gender</option>
+                <option value="-gender">Descending Gender</option>
+                <option value="salary">Salary</option>
+                <option value="-salary">Descending Salary</option>
+            </select>
             <thead>
                 <tr>
                     <th>
@@ -99,13 +110,12 @@
                 </tr>
             </thead>
             <tbody>
-                
-                <tr ng-repeat="employee in employees | limitTo : rowLimit ">
+                <tr ng-repeat="employee in employees | limitTo : rowLimit | orderBy : sorttby">
                     <td>{{employee.name | uppercase}}</td>
                     <td>{{employee.dateOfBirth | date : dd/MM/yyyy}}</td>
                     <td>{{employee.gender | lowercase}}</td>
                     <td>{{employee.salary | currency:"INR$"}}</td>
-                    <td >{{employee.salary |number}}</td>
+                    <td>{{employee.salary |number}}</td>
                 </tr>
             </tbody>
         </table>
