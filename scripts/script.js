@@ -13,6 +13,20 @@
 //Method chaining
 var myApp = angular
   .module("myModule", [])
+  .filter("gender",function(){
+    return function(gender){
+        switch(gender) {
+            case 1:
+                return "Male";
+            case 2:
+                return "Female";
+            case 3:
+                return "Not disclosed";
+            default:
+                return "Unknown";
+        }
+    }
+  })
   .controller("myController", function ($scope) {
     // var employees = [
     //   {
@@ -98,31 +112,31 @@ var myApp = angular
       {
         name: "Ben",
         dateOfBirth: new Date("November 23, 1980"),
-        gender: "Male",
+        gender: 1,
         salary: "55000.788",
       },
       {
         name: "Anna",
         dateOfBirth: new Date("March 15, 1990"),
-        gender: "Female",
+        gender: 2,
         salary: "62000.500",
       },
       {
         name: "John",
         dateOfBirth: new Date("July 10, 1985"),
-        gender: "Male",
+        gender: 1,
         salary: "48000.250",
       },
       {
         name: "Emma",
         dateOfBirth: new Date("December 5, 1992"),
-        gender: "Female",
+        gender: 2,
         salary: "71000.125",
       },
       {
         name: "Michael",
         dateOfBirth: new Date("August 22, 1978"),
-        gender: "Male",
+        gender: 3,
         salary: "83000.900",
       },
     ];
