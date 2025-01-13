@@ -83,7 +83,7 @@ var myApp = angular
     //         dislikes:"0"
     //     }
     // ]
-    
+
     // $scope.message = "Hello!";
     // $scope.employees = employees;
     // $scope.countries = countries;
@@ -95,38 +95,51 @@ var myApp = angular
     //     language.dislikes--;
     // }
     var employees = [
-        {
-            name: "Ben",
-            dateOfBirth: new Date("November 23, 1980"),
-            gender: "Male",
-            salary: "55000.788"
-        },
-        {
-            name: "Anna",
-            dateOfBirth: new Date("March 15, 1990"),
-            gender: "Female",
-            salary: "62000.500"
-        },
-        {
-            name: "John",
-            dateOfBirth: new Date("July 10, 1985"),
-            gender: "Male",
-            salary: "48000.250"
-        },
-        {
-            name: "Emma",
-            dateOfBirth: new Date("December 5, 1992"),
-            gender: "Female",
-            salary: "71000.125"
-        },
-        {
-            name: "Michael",
-            dateOfBirth: new Date("August 22, 1978"),
-            gender: "Male",
-            salary: "83000.900"
-        }
+      {
+        name: "Ben",
+        dateOfBirth: new Date("November 23, 1980"),
+        gender: "Male",
+        salary: "55000.788",
+      },
+      {
+        name: "Anna",
+        dateOfBirth: new Date("March 15, 1990"),
+        gender: "Female",
+        salary: "62000.500",
+      },
+      {
+        name: "John",
+        dateOfBirth: new Date("July 10, 1985"),
+        gender: "Male",
+        salary: "48000.250",
+      },
+      {
+        name: "Emma",
+        dateOfBirth: new Date("December 5, 1992"),
+        gender: "Female",
+        salary: "71000.125",
+      },
+      {
+        name: "Michael",
+        dateOfBirth: new Date("August 22, 1978"),
+        gender: "Male",
+        salary: "83000.900",
+      },
     ];
     $scope.employees = employees;
     $scope.sorttby = "name";
-    $scope.rowLimit = 1;
-});
+    $scope.rowLimit = 5;
+    $scope.search = function (item) {
+      if ($scope.searchText == undefined) {
+        return true;
+      } else {
+        if (
+          item.name.toLowerCase().indexOf($scope.searchText.toLowerCase()) !=
+            -1 ||
+          item.gender.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1
+        ) {
+          return true;
+        }
+      }
+    };
+  });
