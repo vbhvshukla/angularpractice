@@ -7,122 +7,19 @@
     <script src="/scripts/angular.js"></script>
     <script src="/scripts/script.js"></script>
     <script src="/scripts/filters.js"></script>
-    
+
 </head>
 
 <body ng-app="myModule">
     <div ng-controller="myController">
-        <!-- {{message}}<br>
-        {{greetings}}<br>
-        {{employee.firstName}}
-        {{employee.lastName}}<br>
-        Age : {{employee.age}}<br>
-        This DOM is rendered twice first with the simple text and then with the angular expression
-        So if we see console, first error is thrown : 
-        "Failed to load resource: the server responded with a status of 404 (Not Found)Understand this errorAI"
-        Then when the angular is parsed then again new dom is made
-       <img src="{{employee.profileImage}}" alt="">
-        <img ng-src="{{employee.profileImage}}" />
-        <input type="text" ng-model="message" />
-        <input type="text" ng-model="greetings" /> -->
-        <!-- <table>
-           <thead>
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-            </tr>
-           </thead>
-           <tbody>
-            <tr ng-repeat="employee in employees">
-                <td>{{employee.firstName}} </td>
-                <td>{{employee.lastName}} </td>
-                <td>{{employee.age}} </td>
-            </tr>
-           </tbody>
-        </table> -->
-        <!-- <ul>
-            <li ng-repeat = "country in countries">
-                {{country.name}}
-                <ul ng-repeat = "city in country.cities">
-                    <li>{{city}}'s Index is {{$index}} & Parent's Index is {{$parent.$index}}</li>
-                </ul>
-            </li>
-        </ul> -->
-        <!-- Another way to get parent index of above example -->
-        <!-- <ul>
-            <li ng-repeat = "country in countries" ng-init="parentIndex = $index">
-                {{country.name}}
-                <ul ng-repeat = "city in country.cities">
-                    <li>{{city}}'s Index is {{$index}} & Parent's Index is {{parentIndex}}</li>
-                </ul>
-            </li>
-        </ul> -->
-        <!-- <table>
-            <thead>
-                <tr>
-                    <th>Programming Langauges</td>
-                    <th>Likes</td>
-                    <th>Dislikes</td>
-                    <th>Vote</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="language in languages">
-                    <td>{{language.name}}</td>
-                    <td>{{language.likes}}</td>
-                    <td>{{language.dislikes}}</td>
-                    <td>
-                        <input type="button" ng-click="clickLike(language)" value="Like">
-                        <input type="button" ng-click="clickDislike(language)" value="Dislike">
-                    </td>
-                </tr>
-            </tbody>
-        </table> -->
-        <table>
-            Search: <input type="text" placeholder="Search  City and Name" ng-model="searchText" />
-            <br />
-            <!-- <input type="number" step="1" min= "1" max="5" ng-model="rowLimit">
-            <label for="sortt">Sort by</label> -->
-            <!-- <select ng-model="sorttby">
-                <option value="name">Name</option>
-                <option value="-name">Descending Name</option>
-                <option value="age">DOB</option>
-                <option value="-age">Descending DOB</option>
-                <option value="gender">Gender</option>
-                <option value="-gender">Descending Gender</option>
-                <option value="salary">Salary</option>
-                <option value="-salary">Descending Salary</option>
-            </select> -->
-            <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Date of Birth
-                    </th>
-                    <th>
-                        Gender
-                    </th>
-                    <th>
-                        Salary (number filter)
-                    </th>
-                    <th>
-                        Salary (currency filter)
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="employee in employees | limitTo : rowLimit  | filter:search">
-                    <td>{{employee.name | uppercase}}</td>
-                    <td>{{employee.dateOfBirth | date : dd/MM/yyyy}}</td>
-                    <td>{{employee.gender | lowercase | gender}}</td>
-                    <td>{{employee.salary | currency:"INR$"}}</td>
-                    <td>{{employee.salary |number}}</td>
-                </tr>
-            </tbody>
-        </table>
+        Select View : 
+        <select ng-model="employeeView">
+            <option value="EmployeeTable.html">Table View</option>
+            <option value="EmployeeList.html">List View</option>
+        </select>
+        <div ng-include="employeeView">
+
+        </div>
     </div>
 </body>
 
