@@ -56,7 +56,7 @@
                 </ul>
             </li>
         </ul> -->
-        <table>
+        <!-- <table>
             <thead>
                 <tr>
                     <th>Programming Langauges</td>
@@ -74,6 +74,38 @@
                         <input type="button" ng-click="clickLike(language)" value="Like">
                         <input type="button" ng-click="clickDislike(language)" value="Dislike">
                     </td>
+                </tr>
+            </tbody>
+        </table> -->
+        <input type="number" min=0 max=5 ng-model="rowLimit" ng-init="rowLimit=1" >
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date of Birth
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                        Salary (number filter)
+                    </th>
+                    <th>
+                        Salary (currency filter)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr ng-repeat="employee in employees | limitTo : rowLimit ">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateOfBirth | date : dd/MM/yyyy}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | currency:"INR$"}}</td>
+                    <td >{{employee.salary |number}}</td>
                 </tr>
             </tbody>
         </table>
