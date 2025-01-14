@@ -1,30 +1,47 @@
 var myApp = angular
-  .module("myModule", ["ngRoute"])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when("/home", {
-        templateUrl: "../components/home.html",
+  .module("myModule", ["ui.router"])
+  .config(function (
+    $stateProvider,
+    $urlMatcherFactoryProvider,
+    $urlRouterProvider,
+    $locationProvider
+  ) {
+    $locationProvider.html5Mode(true)
+    $urlMatcherFactoryProvider.caseInsensitive(true); //this ensures case senstivity is not here in url
+    $urlRouterProvider.otherwise("/home");
+    $stateProvider
+      .state("home", {
+        url: "/home",
+        templateUrl: "/components/home.html",
         controller: "homeController",
+        controllerAs: "homeCtrl",
+        data: {
+          customData1: "Custom Data 1",
+          customData2: "Custom Data 2",
+        },
       })
-      .when("/courses", {
-        templateUrl: "../components/courses.html",
+      .state("courses", {
+        url: "/courses",
+        templateUrl: "/components/courses.html",
         controller: "coursesController",
+        controllerAs: "coursesCtrl",
+        data :{
+          coursesCustomData :"Courses custom data"
+        }
       })
-      .when("/students", {
-        templateUrl: "../components/students.html",
+      .state("students", {
+        url: "/students",
+        templateUrl: "/components/students.html",
         controller: "studentsController",
-      })
-      .when("/students/:id", {
-        templateUrl: "../components/studentDetails.html",
-        controller: "studentsDetailsController",
-      })
-      .otherwise({
-        redirectTo: "/home"
+        controllerAs: "studentsCtrl",
       });
-      // $locationProvider.html5Mode(true);
   })
-  .controller("homeController", function ($scope) {
+  .controller("homeController", function ($scope, $state) {
     $scope.message = "Home Page";
+    //For custom data
+    $scope.customData = $state.current.data.customData1;
+    //For another url's custom data
+    $scope.coursesData = $state.get("courses").data.courseCustomData;
   })
   .controller("coursesController", function ($scope) {
     $scope.courses = ["C#", "VB.NET", "CPP", "ASP.NET"];
@@ -69,8 +86,9 @@ var myApp = angular
       },
     ];
   })
-  .controller("studentDetailsController",function($scope,$routeParams){
-    $scope.studentId = $routeParams.id;
+  .controller("studentDetailsController", function ($scope, $stateParams) {
+    $scope.studentId = $stateParams.id;
   })
-
-  
+  .controller("mainController", function () {
+    this.message = "Hello Angular";
+  });
