@@ -34,6 +34,12 @@ var myApp = angular
         templateUrl: "/components/students.html",
         controller: "studentsController",
         controllerAs: "studentsCtrl",
+      })
+      .state("contact", {
+        url: "/contact",
+        templateUrl: "/components/contact.html",
+        // controller: "contactController",
+        // controllerAs: "contactCtrl",
       });
   })
   .controller("homeController", function ($scope, $state) {
